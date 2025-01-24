@@ -14,6 +14,8 @@ Open WaW-Stock-Map-Script-Placer folder, drop base_files folder into _internal f
 
 ## Usage
 
+Run WaW-Stock-Map-Script-Placer.exe
+
 Input mod name
 
 Decide whether you want (all of these optons are optional):;
