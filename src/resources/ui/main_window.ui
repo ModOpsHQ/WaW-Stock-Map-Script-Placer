@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../resources.qrc">
-    <normaloff>:/icons/icons/logo2.svg</normaloff>:/icons/icons/logo2.svg</iconset>
+    <normaloff>:/icons/icons/logo2-transparent.png</normaloff>:/icons/icons/logo2-transparent.png</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>

@@ -37,9 +37,7 @@ a = Analysis(
     pathex=[os.path.abspath('src')],
     binaries=[],
     datas=get_pycache_files('src') + [
-        ('src/resources/icons/logo1-transparent.png', 'resources/icons'),
-        ('json', 'json'),
-        ('shared', 'shared'),
+        ('src/resources/icons/logo2-transparent.png', 'resources/icons'),
     ],
     hiddenimports=collect_submodules('src') + ['platform', 'requests', 'win32com'],
     hookspath=[],
@@ -59,7 +57,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='ContentOps-FastAPI',
+    name='WaW-Stock-Map-Script-Placer',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -77,5 +75,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='ContentOps-FastAPI'
+    name='WaW-Stock-Map-Script-Placer'
 )

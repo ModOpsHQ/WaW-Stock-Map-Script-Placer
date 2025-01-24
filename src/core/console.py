@@ -9,7 +9,7 @@ from PySide6.QtWidgets import QWidget
 #     Main
 # ====================================*/
 
-from src.resources.UI.ui_console import Ui_ConsoleWidget
+from src.resources.ui.ui_console import Ui_ConsoleWidget
 
 class Console(QWidget):
 

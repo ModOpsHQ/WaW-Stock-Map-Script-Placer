@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowhMFFif.ui'
+## Form generated from reading UI file 'main_windowwFuZeE.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -30,7 +30,7 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QSize(449, 634))
         MainWindow.setMaximumSize(QSize(449, 734))
         icon = QIcon()
-        icon.addFile(u":/icons/icons/logo2.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u":/icons/icons/logo2-transparent.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.000000000000000)
         MainWindow.setStyleSheet(u"/* QToolTip */\n"

@@ -12,8 +12,11 @@ from PySide6.QtCore import QTimer, Slot
 
 logger = logging.getLogger(__name__)
 
+from src.core.console import Console
 from src.core.script_placer_worker import FileCopyWorker
+from src.resources.ui.ui_main_window import Ui_MainWindow
 from src.utils.message_box import display_message_box
+
 
 # /*===================================
 #     Main
@@ -32,10 +35,8 @@ class ScriptPlacer:
         self.modffWarningOrErrorOccuredDuringBuild = False
         self.modffWarningOrErrorLogs = []
 
-        from Resources.UI.ui_main_window import Ui_MainWindow
         self.ui: Ui_MainWindow = self.mainWindow.ui
 
-        from Core.console import Console
         self.console = Console()
         self.console.ui.close_console_btn.hide()  # only show when an error
         self.console.ui.close_console_btn.clicked.connect(self.hideConsole)

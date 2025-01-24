@@ -22,21 +22,21 @@ logging.basicConfig(
 # ====================================*/
 
 from src.core.script_placer import ScriptPlacer
-from src.ui.main_window import MainWindow
+from src.core.main_window import MainWindow
 from src.utils.is_executable import is_executable
 from src.utils.message_box import display_message_box
 
 ENV = 'PROD' if is_executable() else 'DEV'
 
+currentWorkingDir = os.getcwd()
+
 # Dynamically determine where the ModOps HQ folder should be created.
 if is_executable():
     # if not exe, then the template files are in cwd (vscode proj dir), and obv the dest for said files is still waw dir.
     # so place the Stock Base Files folder in your working dir, run program, try to create a mod, it will inform you of missing dir, but it will create a ModOps HQ dir in the working dir, so then navigate to Stock-Map Script-Placer and place the Stock Base Files folder in there. now you can create a mod.
-    currentWorkingDir = os.getcwd()
     wawRootDir = currentWorkingDir
 else:
     # when pkg'd into an exe, run exe, it prompts u of dir, it creates modops hq dir, you place folder, done. same as above reli, we just switch between where the modops hq dir is created. this is for automatic dev/prod env changes ofc.
-    currentWorkingDir = os.getcwd()
     # set YOUR waw root directory here
     wawRootDir = r'D:\SteamLibrary\steamapps\common\Call of Duty World at War'
 
