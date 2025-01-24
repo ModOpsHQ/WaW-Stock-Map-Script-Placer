@@ -114,12 +114,12 @@ class ScriptPlacer:
             return
         
         # get the template files directory
-        assetsRootDir = os.path.join(self.currentWorkingDir, 'ModOps HQ',  'Stock-Map Script-Placer')
+        assetsRootDir = os.path.join(self.currentWorkingDir, 'ModOps HQ',  'WaW-Stock-Map-Script-Placer')
         if not os.path.exists(assetsRootDir):
             os.makedirs(assetsRootDir)
         
         # join the template files root directory with the assets directory
-        baseFilesDir = os.path.join(assetsRootDir, 'Stock Base Files', mode, mapName)
+        baseFilesDir = os.path.join(assetsRootDir, 'base_files', mode, mapName)
         if not os.path.exists(baseFilesDir):
             display_message_box(f"Error: The base files directory '{baseFilesDir}' does not exist")
             return

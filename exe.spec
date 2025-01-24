@@ -63,7 +63,7 @@ exe = EXE(
     strip=False,
     upx=True,
     console=True,
-    icon='src/resources/icons/logo1-transparent.png',
+    icon='src/resources/icons/logo2-transparent.png',
     uac_admin=False  # This enables running as administrator
 )
 

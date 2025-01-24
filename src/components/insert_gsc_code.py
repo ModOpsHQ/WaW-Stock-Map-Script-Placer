@@ -56,21 +56,21 @@ if __name__ == '__main__':
         case 'sp':
             line_identifier = r'maps\_load::main('
             file_path = os.path.join(dest, 'maps', f'{mapName}.gsc')
-            append_str = f"""\npost() {{  // ModOps HQ - Stock-Map Script-Placer v1.1.0
+            append_str = f"""\npost() {{  // ModOps HQ (Price) - WaW-Stock-Map-Script-Placer v1.1.1
 wait 10;
 iPrintLn( "{message}" );
 }}"""
         case 'mp':
             line_identifier = r'maps\mp\_load::main('
             file_path = os.path.join(dest, 'maps', 'mp', f'{mapName}.gsc')
-            append_str = f"""\npost() {{  // ModOps HQ - Stock-Map Script-Placer v1.1.0
+            append_str = f"""\npost() {{  // ModOps HQ (Price) - WaW-Stock-Map-Script-Placer v1.1.1
 wait 15;
 iPrintLn( "{message}" );
 }}"""
         case 'zm':
             line_identifier = r'maps\_zombiemode::main('
             file_path = os.path.join(dest, 'maps', f'{mapName}.gsc')
-            append_str = f"""\npost() {{  // ModOps HQ - Stock-Map Script-Placer v1.1.0
+            append_str = f"""\npost() {{  // ModOps HQ (Price) - WaW-Stock-Map-Script-Placer v1.1.1
 flag_wait("all_players_connected");
 wait 1;
 iPrintLn( "{message}" );
@@ -83,6 +83,6 @@ iPrintLn( "{message}" );
     insertMarkerToConfirmTheBuildsValidity(
         file_path=file_path,
         line_identifier=line_identifier,
-        insert_str='\n	thread post();  // ModOps HQ - Stock-Map Script-Placer v1.1.0',
+        insert_str='\n	thread post();  // ModOps HQ (Price) - WaW-Stock-Map-Script-Placer v1.1.1',
         append_str=append_str
     )

@@ -799,12 +799,6 @@ QToolButton::menu-button:pressed {
           </item>
           <item>
            <widget class="QCheckBox" name="insert_ingame_print_msg_cbox">
-            <property name="toolTip">
-             <string>Example of in-game print message:
-'zm_test1 built successfully!'
-
-Currently only available for mode: zm</string>
-            </property>
             <property name="styleSheet">
              <string notr="true">QCheckBox {padding-left: 5px;}</string>
             </property>
