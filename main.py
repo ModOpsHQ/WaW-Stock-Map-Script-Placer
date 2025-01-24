@@ -88,4 +88,4 @@ py -m compileall . ; pyinstaller exe.spec --clean -y
 """
 
 # NOTE: when issues in program, run exe via cmd-prompt to view output
-# "C:\Users\Phil-\OneDrive\__Workbase__\ModOps HQ\repos\WaW-Stock-Map-Script-Placer\dist\WaW-Stock-Map-Script-Placer\WaW-Stock-Map-Script-Placer v1.1.1.exe"
+# "C:\Users\Phil-\OneDrive\__Workbase__\ModOps HQ\repos\WaW-Stock-Map-Script-Placer\dist\WaW-Stock-Map-Script-Placer v1.1.1\WaW-Stock-Map-Script-Placer v1.1.1.exe"
