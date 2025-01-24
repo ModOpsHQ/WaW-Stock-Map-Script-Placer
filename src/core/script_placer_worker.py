@@ -15,13 +15,21 @@ from PySide6.QtCore import QThread, Signal
 logger = logging.getLogger(__name__)
 
 # /*===================================
+#     Initialize Config
+# ====================================*/
+
+# Needs to initialize, even if not used in this file.
+import src.core.config as config
+
+# /*===================================
 #     Main
 # ====================================*/
 
 import src.components.build_mod_ff as build_mod_ff
 import src.components.build_iwd as build_iwd
 import src.components.insert_gsc_code as insert_gsc_code
-from src.utils.is_executable import is_executable
+from src.utils.create_shortcut import create_shortcut
+from src.utils.run_executable import run_executable
 
 class FileCopyWorker(QThread):
     # signals
@@ -83,7 +91,7 @@ class FileCopyWorker(QThread):
             self.exitWorker(False, f"Error: {err}")
     
     def exitWorker(self, qbool: bool, msg: str) -> None:
-        logger.debug(msg)
+        logger.info(msg)
         self.finished.emit(qbool, msg)
 
     def copyFiles(self):
@@ -99,7 +107,7 @@ class FileCopyWorker(QThread):
             iconPath = None
         startInPath = wawRootDir  # "Start In" path (working directory)
 
-        PyUtility.createShortcut(
+        create_shortcut(
             target=wawPath,  # this is the "Target" Path (exe > properties > shorcut tab > target path field)
             shortcut_dest=newShortcutPath,  # store shortcut on the user's desktop
             icon_path=iconPath,  # Set icon
@@ -164,13 +172,12 @@ class FileCopyWorker(QThread):
         self.build_output_handle.emit(message)
 
     def runExecutable(self):
-        dir = self.wawRootDir if not is_executable() else os.getcwd()
-        _, message = PyUtility.runExecutable(
-            running_dir=dir,
-            exe_path=os.path.join(dir, f'{self.exeName}.exe'),
+        _, message = run_executable(
+            running_dir=self.wawRootDir,
+            exe_path=os.path.join(self.wawRootDir, f'{self.exeName}.exe'),
             exe_args=rf'+set fs_game mods/{self.modName} +devmap {self.mapName} +set r_fullscreen 0'
         )
-        logger.debug(message)
+        logger.info(message)
 
     def insertIngamePrintMsg(self):
         message = f'Mod: {self.modName} was built successfully!'

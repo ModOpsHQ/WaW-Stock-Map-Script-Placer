@@ -20,6 +20,12 @@ logger = logging.getLogger(__name__)
 CWD = os.path.join(os.path.dirname(sys.executable), '_internal') if getattr(sys, 'frozen', False) else os.getcwd()
 
 # /*===================================
+#     Add the src directory to the Python path
+# ====================================*/
+
+sys.path.insert(0, os.path.join(CWD, 'src'))
+
+# /*===================================
 #     Load Config Info
 # ====================================*/
 
@@ -34,3 +40,8 @@ except KeyError as e:
     raise
 
 WAW_ROOT_DIR = CONFIG["waw_root_dir"]
+
+WAW_ROOT_DIR_VALID = True
+if not os.path.exists(WAW_ROOT_DIR):
+    logger.error(f"Error: The WaW Root Directory '{WAW_ROOT_DIR}' does not exist")
+    WAW_ROOT_DIR_VALID = False

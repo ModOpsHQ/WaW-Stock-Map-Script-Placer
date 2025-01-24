@@ -12,25 +12,29 @@ from PySide6.QtCore import QTimer, Slot
 
 logger = logging.getLogger(__name__)
 
-from src.core.console import Console
-from src.core.script_placer_worker import FileCopyWorker
-from src.resources.ui.ui_main_window import Ui_MainWindow
-from src.utils.message_box import display_message_box
+# /*===================================
+#     Initialize Config
+# ====================================*/
 
+# Needs to initialize, even if not used in this file.
+import src.core.config as config
 
 # /*===================================
 #     Main
 # ====================================*/
+
+from src.core.console import Console
+from src.core.script_placer_worker import FileCopyWorker
+from src.resources.ui.ui_main_window import Ui_MainWindow
+from src.utils.message_box import display_message_box
 
 class InputValidationAbort(Exception):
     """Custom exception to escape input validation warnings and hault the flow of execution"""
     pass
 
 class ScriptPlacer:
-    def __init__(self, mainWindow, currentWorkingDir, wawRootDir) -> None:
+    def __init__(self, mainWindow) -> None:
         self.mainWindow = mainWindow
-        self.currentWorkingDir = currentWorkingDir
-        self.wawRootDir = wawRootDir
 
         self.modffWarningOrErrorOccuredDuringBuild = False
         self.modffWarningOrErrorLogs = []
@@ -95,9 +99,9 @@ class ScriptPlacer:
         self.ui.submit_btn.clicked.connect(self.createMod)
 
     def createMod(self):
-        # ensure wawRootDir is valid
-        if not os.path.exists(self.wawRootDir):
-            msg = f"Error: The wawRootDir '{self.wawRootDir}' does not exist"
+        # ensure WaW root dir is valid
+        if not os.path.exists(config.WAW_ROOT_DIR):
+            msg = f"Error: The WaW Root Directory '{config.WAW_ROOT_DIR}' does not exist"
             logger.debug(msg)
             display_message_box(msg)
             return        
@@ -114,18 +118,18 @@ class ScriptPlacer:
             return
         
         # get the template files directory
-        assetsRootDir = os.path.join(self.currentWorkingDir, 'ModOps HQ',  'WaW-Stock-Map-Script-Placer')
+        assetsRootDir = os.path.join(config.CWD, 'base_files')
         if not os.path.exists(assetsRootDir):
             os.makedirs(assetsRootDir)
         
         # join the template files root directory with the assets directory
-        baseFilesDir = os.path.join(assetsRootDir, 'base_files', mode, mapName)
+        baseFilesDir = os.path.join(assetsRootDir, mode, mapName)
         if not os.path.exists(baseFilesDir):
             display_message_box(f"Error: The base files directory '{baseFilesDir}' does not exist")
             return
 
         # we've already previously checked that the modName doesn't exist, so we can safely create the mod dir
-        modDir = os.path.join(self.wawRootDir, 'mods', modName)
+        modDir = os.path.join(config.WAW_ROOT_DIR, 'mods', modName)
         if not os.path.exists(modDir):
             os.makedirs(modDir)
 
@@ -145,7 +149,7 @@ class ScriptPlacer:
         if modName == "":
             raise InputValidationAbort('Warning, Please enter a mod name')
 
-        if os.path.exists(os.path.join(self.wawRootDir, "mods", modName)):
+        if os.path.exists(os.path.join(config.WAW_ROOT_DIR, "mods", modName)):
             raise InputValidationAbort(f'Warning, {modName} already exists')
 
         if not self.isAnyCheckboxChecked():
@@ -210,7 +214,7 @@ class ScriptPlacer:
         # Use shutil.copytree to copy the folder and its contents
         # Create and start the worker thread
         self.copy_worker = FileCopyWorker(
-            wawRootDir=self.wawRootDir,
+            wawRootDir=config.WAW_ROOT_DIR,
             src=baseFilesDir, dest=modDir,
             modName=modName, mapName=mapName, mode=mode,
             create_shortcut=self.createShortcut,
@@ -255,13 +259,13 @@ class ScriptPlacer:
     # mod.ff
     @Slot(str)
     def buildModFFWarningOutputHandleSlot(self, message: str) -> None:
-        logger.debug('WARNING occured during modff build')
+        logger.warning('WARNING occured during modff build')
         self.modffWarningOrErrorOccuredDuringBuild = True
         self.modffWarningOrErrorLogs.append(message)
     
     @Slot(str)
     def buildModFFErrorOutputHandleSlot(self, message: str) -> None:
-        logger.debug('ERROR occured during modff build')
+        logger.error('ERROR occured during modff build')
         self.modffWarningOrErrorOccuredDuringBuild = True
         self.modffWarningOrErrorLogs.append(message)        
 

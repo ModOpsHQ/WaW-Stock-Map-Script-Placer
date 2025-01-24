@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowwFuZeE.ui'
+## Form generated from reading UI file 'main_windowEMIHXl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.1
 ##
@@ -722,17 +722,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.shortcut_cbox)
 
-        self.insert_ingame_print_msg_cbox = QCheckBox(self.frame)
-        self.insert_ingame_print_msg_cbox.setObjectName(u"insert_ingame_print_msg_cbox")
-        self.insert_ingame_print_msg_cbox.setStyleSheet(u"QCheckBox {padding-left: 5px;}")
-
-        self.verticalLayout_2.addWidget(self.insert_ingame_print_msg_cbox)
-
         self.build_mod_cbox = QCheckBox(self.frame)
         self.build_mod_cbox.setObjectName(u"build_mod_cbox")
         self.build_mod_cbox.setStyleSheet(u"QCheckBox {padding-left: 5px;}")
 
         self.verticalLayout_2.addWidget(self.build_mod_cbox)
+
+        self.insert_ingame_print_msg_cbox = QCheckBox(self.frame)
+        self.insert_ingame_print_msg_cbox.setObjectName(u"insert_ingame_print_msg_cbox")
+        self.insert_ingame_print_msg_cbox.setStyleSheet(u"QCheckBox {padding-left: 5px;}")
+
+        self.verticalLayout_2.addWidget(self.insert_ingame_print_msg_cbox)
 
         self.run_map_cbox = QCheckBox(self.frame)
         self.run_map_cbox.setObjectName(u"run_map_cbox")
@@ -1059,14 +1059,8 @@ class Ui_MainWindow(object):
 "'+set fs_game mods/{self.modName} +devmap {self.mapName} +set r_fullscreen 0'", None))
 #endif // QT_CONFIG(tooltip)
         self.shortcut_cbox.setText(QCoreApplication.translate("MainWindow", u"Add shortcut to desktop (w/ args) ..for quick map loading ?", None))
-#if QT_CONFIG(tooltip)
-        self.insert_ingame_print_msg_cbox.setToolTip(QCoreApplication.translate("MainWindow", u"Example of in-game print message:\n"
-"'zm_test1 built successfully!'\n"
-"\n"
-"Currently only available for mode: zm", None))
-#endif // QT_CONFIG(tooltip)
-        self.insert_ingame_print_msg_cbox.setText(QCoreApplication.translate("MainWindow", u"Insert an in-game print message to confirm build ?", None))
         self.build_mod_cbox.setText(QCoreApplication.translate("MainWindow", u"Build Mod ?", None))
+        self.insert_ingame_print_msg_cbox.setText(QCoreApplication.translate("MainWindow", u"Insert an in-game print message to confirm build ?", None))
         self.run_map_cbox.setText(QCoreApplication.translate("MainWindow", u"Run Map ?", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"SP", None))
         self.sp_ber1_cbox.setText(QCoreApplication.translate("MainWindow", u"Ring of Steel (ber1)", None))

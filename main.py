@@ -11,10 +11,18 @@ from PySide6.QtWidgets import QApplication
 #     Configure Logging
 # ====================================*/
 
+# CREATE LOG FILE
+log_dir = os.path.join(os.path.dirname(sys.executable), '_internal', 'logs') if getattr(sys, 'frozen', False) else os.path.join(os.getcwd(), 'logs')
+logfile = "waw-stock-map-script-placer.log"
+log_path = os.path.join(log_dir, logfile)
+if not os.path.exists(log_dir):
+    os.makedirs(log_dir)
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
+    datefmt='%Y-%m-%d %H:%M:%S',
+    filename=log_path,
+    filemode='w'
 )
 
 # /*===================================
@@ -30,30 +38,22 @@ import src.core.config as config
 
 from src.core.script_placer import ScriptPlacer
 from src.core.main_window import MainWindow
-from src.utils.is_executable import is_executable
 from src.utils.message_box import display_message_box
-
-ENV = 'PROD' if is_executable() else 'DEV'
 
 class Entry:
 
     @classmethod
     def init(cls) -> None:
+
+        if not config.WAW_ROOT_DIR_VALID:
+            display_message_box(f"Error: The WaW Root Directory '{config.WAW_ROOT_DIR}' does not exist")
+            sys.exit(0)
         
         # Initialize main window
         cls.mainWindow = MainWindow()
 
-        # Display environment status
-        logging.info(f'Running in {ENV} mode')
-
-        # if running via exe, then ensure program is in the correct (waw) directory
-        if is_executable():
-            if not r'Call of Duty World at War' in os.getcwd():
-                display_message_box("Error, Please run this program from the 'Call of Duty World at War' directory")
-                sys.exit(0)
-
         # Initialize script placer
-        cls.scriptPlacer = ScriptPlacer(cls.mainWindow, config.CWD, config.WAW_ROOT_DIR)
+        cls.scriptPlacer = ScriptPlacer(cls.mainWindow)
 
         # Show main window
         cls.mainWindow.show()
@@ -88,4 +88,4 @@ py -m compileall . ; pyinstaller exe.spec --clean -y
 """
 
 # NOTE: when issues in program, run exe via cmd-prompt to view output
-# "C:\Users\Phil-\OneDrive\__Workbase__\ModOps HQ\repos\WaW-Stock-Map-Script-Placer\dist\WaW-Stock-Map-Script-Placer\WaW-Stock-Map-Script-Placer.exe"
+# "C:\Users\Phil-\OneDrive\__Workbase__\ModOps HQ\repos\WaW-Stock-Map-Script-Placer\dist\WaW-Stock-Map-Script-Placer\WaW-Stock-Map-Script-Placer v1.1.1.exe"

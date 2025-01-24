@@ -36,18 +36,18 @@ def insertMarkerToConfirmTheBuildsValidity(file_path, line_identifier, insert_st
             # After writing all lines, append the append_str to the end of the file
             file.write('\n' + append_str + '\n')
         
-        logger.debug(f"File '{file_path}' modified successfully.")
+        logger.info("Inserted marker to confirm the builds validity successfully.")
 
     except Exception as e:
-        logger.exception(f'An error occurred: {e}')
+        logger.error(f'An error occurred: {e}')
 
 # Usage example:
 if __name__ == '__main__':
     import os
 
-    mode = 'zm'
-    modName = 'zm_test1'
-    mapName = 'nazi_zombie_prototype'
+    mode = 'mp'
+    modName = 'mp_airfield'
+    mapName = 'mp_airfield'
     dest = rf'D:\SteamLibrary\steamapps\common\Call of Duty World at War\mods\{modName}'
 
     message = f'Mod: {modName} was built successfully!'
@@ -57,23 +57,23 @@ if __name__ == '__main__':
             line_identifier = r'maps\_load::main('
             file_path = os.path.join(dest, 'maps', f'{mapName}.gsc')
             append_str = f"""\npost() {{  // ModOps HQ (Price) - WaW-Stock-Map-Script-Placer v1.1.1
-wait 10;
-iPrintLn( "{message}" );
+    wait 10;
+    iPrintLn( "{message}" );
 }}"""
         case 'mp':
             line_identifier = r'maps\mp\_load::main('
             file_path = os.path.join(dest, 'maps', 'mp', f'{mapName}.gsc')
             append_str = f"""\npost() {{  // ModOps HQ (Price) - WaW-Stock-Map-Script-Placer v1.1.1
-wait 15;
-iPrintLn( "{message}" );
+    wait 15;
+    iPrintLn( "{message}" );
 }}"""
         case 'zm':
             line_identifier = r'maps\_zombiemode::main('
             file_path = os.path.join(dest, 'maps', f'{mapName}.gsc')
             append_str = f"""\npost() {{  // ModOps HQ (Price) - WaW-Stock-Map-Script-Placer v1.1.1
 flag_wait("all_players_connected");
-wait 1;
-iPrintLn( "{message}" );
+    wait 1;
+    iPrintLn( "{message}" );
 }}"""
 
         case _:

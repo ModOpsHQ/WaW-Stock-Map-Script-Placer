@@ -798,22 +798,22 @@ QToolButton::menu-button:pressed {
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="insert_ingame_print_msg_cbox">
-            <property name="styleSheet">
-             <string notr="true">QCheckBox {padding-left: 5px;}</string>
-            </property>
-            <property name="text">
-             <string>Insert an in-game print message to confirm build ?</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QCheckBox" name="build_mod_cbox">
             <property name="styleSheet">
              <string notr="true">QCheckBox {padding-left: 5px;}</string>
             </property>
             <property name="text">
              <string>Build Mod ?</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="insert_ingame_print_msg_cbox">
+            <property name="styleSheet">
+             <string notr="true">QCheckBox {padding-left: 5px;}</string>
+            </property>
+            <property name="text">
+             <string>Insert an in-game print message to confirm build ?</string>
             </property>
            </widget>
           </item>

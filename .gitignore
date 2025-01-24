@@ -1,8 +1,17 @@
+# Python cache files
 **/__pycache__/
+
+# Development folders
 archived/
+tests/
+
+# Log files
+logs/
+
+# Build outputs
 dist/
 build/
-logs/
-tests/
+
+# Game assets and data
 base_files/
-ModOps HQ/
+base_files.zip

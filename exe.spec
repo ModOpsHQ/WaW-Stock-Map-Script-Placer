@@ -38,6 +38,7 @@ a = Analysis(
     binaries=[],
     datas=get_pycache_files('src') + [
         ('src/resources/icons/logo2-transparent.png', 'resources/icons'),
+        ('json', 'json'),
     ],
     hiddenimports=collect_submodules('src') + ['platform', 'requests', 'win32com'],
     hookspath=[],
@@ -57,7 +58,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='WaW-Stock-Map-Script-Placer',
+    name='WaW-Stock-Map-Script-Placer v1.1.1',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
