@@ -63,7 +63,7 @@ exe = EXE(
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    console=True,
+    console=False,
     icon='src/resources/icons/logo2-transparent.png',
     uac_admin=False  # This enables running as administrator
 )
