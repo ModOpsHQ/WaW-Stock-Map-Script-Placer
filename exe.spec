@@ -76,5 +76,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='WaW-Stock-Map-Script-Placer'
+    name='WaW-Stock-Map-Script-Placer v1.1.1'
 )
