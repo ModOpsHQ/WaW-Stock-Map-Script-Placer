@@ -1,6 +1,6 @@
 # WaW-Stock-Map-Script-Placer
 
-Creates a mod via the decompiled stock .ff files found in waw_root/zone/english
+A tool for creating custom Stock Map - Mods.
 
 ## Installation
 
@@ -29,3 +29,15 @@ Select one of the maps in the mode-specific sections.
 ## License
 
 GNU Lesser General Public License Version 3
+
+# Screenshot
+
+![alt text](misc/screenshot1.png)
+
+# Creator
+
+Price (a.k.a phil81334)
+
+# Video
+
+https://youtu.be/-cfac1ugllk
