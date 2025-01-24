@@ -1,0 +1,1357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>449</width>
+    <height>634</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>449</width>
+    <height>634</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>449</width>
+    <height>734</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>ModOps HQ - WaW-Stock-Map-Script-Placer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/icons/icons/logo2.svg</normaloff>:/icons/icons/logo2.svg</iconset>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* QToolTip */
+QToolTip {
+    background-color: #2e2e2e;   /* Dark gray background */
+    color: #ffffff;              /* White text */
+    border: 1px solid #5b5e60;   /* Light gray border */
+    padding: 4px;                /* Padding for the tooltip */
+    border-radius: 4px;          /* Rounded corners */
+    opacity: 200;                /* Slight transparency */
+    font-size: 12px;             /* Slightly smaller font size for readability */
+}
+
+/* QMenuBar */
+QMenuBar {
+    background-color: #2e2e2e;    /* Dark gray background */
+    color: #ffffff;               /* White text */
+    border-bottom: 1px solid #5b5e60;  /* Light gray border for separation */
+}
+
+QMenuBar::item {
+    background-color: transparent; /* Transparent background */
+    padding: 6px 6px;             /* Padding for menu items */
+    color: #ffffff;                /* White text */
+}
+
+QMenuBar::item:selected {          /* Hovered menu item */
+    background-color: #4a90e2;     /* Light blue on hover */
+    color: #ffffff;                /* Ensure text remains white */
+}
+
+QMenuBar::item:pressed {           /* Pressed menu item */
+    background-color: #3d78b2;     /* Darker blue on press */
+    color: #ffffff;                /* Ensure text remains white */
+}
+
+/* QMenu */
+QMenu {
+    background-color: #2e2e2e;     /* Dark gray background for menus */
+    border: 1px solid #5b5e60;     /* Light gray border */
+}
+
+QMenu::item {
+    background-color: transparent; /* Transparent background for menu items */
+    color: #ffffff;                /* White text */
+	padding: 6px;
+    margin-left: 6px;             /* Padding for each menu item */
+}
+
+QMenu::item:selected {             /* Hovered menu item */
+    background-color: #4a90e2;     /* Light blue background on hover */
+    color: #ffffff;                /* Ensure text remains white */
+}
+
+QMenu::item:pressed {              /* Pressed menu item */
+    background-color: #3d78b2;     /* Darker blue background on press */
+    color: #ffffff;                /* Ensure text remains white */
+}
+
+QMenu::separator {
+    height: 1px;
+    background-color: #5b5e60;     /* Light gray separator between items */
+}
+
+/* QMenu::indicator (checkboxes and radio buttons in menus) */
+QMenu::indicator {
+    width: 16px;
+    height: 16px;
+    background-color: #2e2e2e;     /* Dark gray background for indicators */
+    border: 1px solid #5b5e60;     /* Light gray border */
+    border-radius: 2px;            /* Slightly rounded corners */
+}
+
+QMenu::indicator:checked {
+    background-color: #4a90e2;     /* Light blue when checked */
+    border-color: #3d78b2;         /* Darker blue border when checked */
+}
+
+QMenu::indicator:unchecked {
+    background-color: #2e2e2e;     /* Keep the dark gray when unchecked */
+    border-color: #5b5e60;         /* Light gray border when unchecked */
+}
+
+/* QToolBar */
+QToolBar {
+    background-color: #2e2e2e;      /* Dark gray background */
+    border: 1px solid #5b5e60;      /* Light gray border */
+    padding: 4px;                   /* Padding inside the toolbar */
+    spacing: 4px;                   /* Spacing between toolbar buttons */
+}
+
+QToolBar::handle {
+    background-color: #5b5e60;      /* Light gray handle for draggable toolbars */
+    width: 10px;                    /* Width of the handle */
+	height: 10px;
+    margin: 4px;                    /* Margin around the handle */
+}
+
+QToolBar::separator {
+    background-color: #5b5e60;      /* Light gray for separators */
+    width: 1px;                     /* Thickness of the separator */
+    height: 24px;                   /* Height of the separator */
+    margin: 6px;                    /* Space around the separator */
+}
+
+QToolBar::item {
+    padding: 4px;                   /* Padding for individual toolbar items */
+}
+
+/* QStatusBar */
+QStatusBar {
+    background-color: #2e2e2e;   /* Dark gray background */
+    border-top: 1px solid #5b5e60; /* Light gray top border for separation */
+    color: #ffffff;              /* White text */
+    font-size: 13px;             /* Slightly smaller font for the status bar */
+    padding: 6px;                /* Padding inside the status bar */
+}
+
+QStatusBar::item {
+    border: none;                /* No border around individual status items */
+    padding: 0px 5px;            /* Padding between status bar items */
+}
+
+QStatusBar QLabel {
+    color: #ffffff;              /* White text for any QLabel inside the status bar */
+    background-color: transparent; /* Ensure QLabel in status bar matches the bar's background */
+}
+
+QStatusBar::indicator {
+    background-color: #4a90e2;   /* Optional indicator styling, e.g., for icons or status signals */
+    border-radius: 4px;          /* Rounded corners for any indicator elements */
+}
+
+/* QGroupBox */
+QGroupBox {
+    background-color: #2e2e2e;        /* Dark gray background */
+    border: 1px solid #5b5e60;        /* Light gray border */
+    border-radius: 4px;               /* Rounded corners */
+    margin-top: 15px;                 /* Space above the group box */
+    padding-top: 0px;                    /* Padding inside the group box */
+    color: #ffffff;                   /* White text for the title */
+    font-weight: bold;                /* Bold title text */
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;    /* Position the title at the top left */
+    background-color: transparent;    /* Transparent background for the title */
+    padding: 0 5px;                   /* Padding around the title */
+    color: #ffffff;                   /* White text for the title */
+}
+
+QGroupBox::title:hover {
+    color: #4a90e2;                   /* Light blue title on hover */
+}
+
+QGroupBox:flat {
+    border: none;                     /* No border when the group box is flat */
+}
+
+QGroupBox:disabled {
+    color: #777777;                   /* Lighter gray text for disabled group box */
+    border-color: #5b5e60;            /* Keep the light gray border */
+}
+
+/* QGraphicsView */
+QGraphicsView {
+    background-color: #2e2e2e;  /* Dark gray background */
+    border: 1px solid #5b5e60;  /* Light gray border */
+    border-radius: 4px;         /* Rounded corners */
+}
+
+QGraphicsView:focus {
+    border-color: #4a90e2;      /* Light blue border when focused */
+    background-color: #333333;  /* Slightly lighter gray background on focus */
+}
+
+QGraphicsView:disabled {
+    background-color: #2e2e2e;  /* Dark gray background when disabled */
+    border-color: #5b5e60;      /* Light gray border for disabled state */
+    color: #777777;             /* Lighter gray for disabled text or content */
+}
+
+QGraphicsView::viewport {
+    background-color: #2e2e2e;  /* Dark gray background for the viewport */
+}
+
+/* QScrollArea
+This covers around the outter edge, like 2-3px maybe */
+QScrollArea {
+    background-color: #2e2e2e;  /* Dark gray background */
+    border: 1px solid #5b5e60;  /* Light gray border */
+    border-radius: 4px;         /* Rounded corners */
+    padding: 5px;               /* Padding inside the scroll area */
+}
+
+/* Alternatively, this may also target the viewport more directly
+This covers the whole area, including above/below the scrollbar */
+QScrollArea QWidget {
+    background-color: #2e2e2e;          /* Ensures all content within is black */
+}
+
+/* QScrollArea Viewport
+This covers above/below the scrollbar */
+QScrollArea &gt; QWidget {
+    background-color: #2e2e2e;          /* Background of the viewport widget */
+}
+
+/* Scroll Corner (the area between horizontal and vertical scroll bars) */
+QScrollArea::corner {
+    background-color: #2e2e2e;  /* Dark gray to match the overall scroll area */
+}
+
+QScrollBar:vertical {
+    background: #111;
+    width: 10px;
+}
+
+QScrollBar::handle:vertical {
+    background: #61657B;
+    min-height: 15px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #ff6b27;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    border: none;
+    background: none;
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+    border: none;
+    width: 0;
+    height: 0;
+    background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}
+
+/* QLabel */
+QLabel {
+    color: #ffffff;             /* White text */
+}
+
+/* QFrame */
+QFrame {
+    background-color: #2e2e2e;  /* Dark gray for frames */
+}
+
+/* QLineEdit */
+QLineEdit {
+    background-color: #2e2e2e;  /* Dark gray background for input fields */
+    color: #ffffff;             /* White text */
+    border: 1px solid #5b5e60;  /* Light gray border */
+    border-radius: 4px;         /* Rounded corners */
+}
+
+QLineEdit:focus {
+    border-color: #4a90e2;      /* Light blue border when focused */
+    background-color: #333333;  /* Slightly lighter gray on focus */
+}
+
+/* QListWidget */
+QListWidget {
+    background-color: #2e2e2e;      /* Dark gray background */
+    color: #ffffff;                 /* White text */
+    border: 1px solid #5b5e60;      /* Light gray border */
+    padding: 4px;                   /* Padding around the list */
+}
+
+QListWidget::item {
+    background-color: transparent;  /* Transparent background for items */
+    color: #ffffff;                 /* White text for list items */
+    border: none;                   /* No border for list items */
+}
+
+QListWidget::item:selected {
+    background-color: #4a90e2;      /* Light blue background when selected */
+    color: #ffffff;                 /* Ensure text remains white when selected */
+}
+
+QListWidget::item:hover {
+    background-color: #3d78b2;      /* Darker blue on hover */
+    color: #ffffff;                 /* Ensure text remains white when hovered */
+}
+
+QListWidget::item:focus {
+    border: 1px solid #4a90e2;      /* Light blue border on focus */
+}
+
+/* QPlainTextEdit */
+QPlainTextEdit {
+    background-color: #2b2b2b;  /* Darker gray background for text area */
+    color: #ffffff;             /* White text */
+    border: 1px solid #5b5e60;  /* Light gray border */
+    border-radius: 0px;         /* No rounded corners */
+    padding: 10px;              /* Comfortable padding for text input */
+    font-size: 13px;            /* Slightly smaller font */
+    line-height: 1.4;           /* Adjust line spacing for readability */
+}
+
+QPlainTextEdit:focus {
+    border-color: #4a90e2;      /* Light blue border on focus */
+    background-color: #3a3a3a;  /* Slightly lighter gray on focus */
+}
+
+/* QTabWidget */
+QTabWidget::pane {
+    background-color: #2e2e2e;      /* Dark gray background */
+    border: 1px solid #5b5e60;      /* Light gray border around the pane */
+    padding: 4px;                   /* Padding inside the pane */
+}
+
+QTabWidget::tab-bar {
+    left: 0px;                      /* Space from the left */
+}
+
+/* QTabBar::tab */
+QTabBar::tab {
+    background-color: #3c3f41;      /* Dark gray background for tabs */
+    color: #ffffff;                 /* White text for tabs */
+    border-left: 1px solid #5b5e60;      /* Light gray border around tabs */
+    border-top: 1px solid #5b5e60;
+    border-right: 1px solid #5b5e60;
+    padding: 4px 8px;              /* Padding for each tab */
+    margin-left: 2px;                    /* Slight margin between tabs */
+    margin-right: 2px;
+    border-top-left-radius: 4px;    /* Rounded top corners */
+    border-top-right-radius: 4px;   /* Rounded top corners */
+}
+
+/* Selected tab */
+QTabBar::tab:selected {
+    background-color: #4a90e2;      /* Light blue background for selected tab */
+    color: #ffffff;                 /* White text for selected tab */
+    border-color: #4a90e2;          /* Blue border for selected tab */
+}
+
+/* Hovered tab */
+QTabBar::tab:hover {
+    background-color: #3d78b2;      /* Darker blue on hover */
+    color: #ffffff;                 /* White text */
+}
+
+/* Disabled tab */
+QTabBar::tab:disabled {
+    background-color: #2e2e2e;      /* Dark gray for disabled tab */
+    color: #777777;                 /* Light gray text for disabled tabs */
+}
+
+/* Focused tab */
+QTabBar::tab:focus {
+    border: 1px solid #4a90e2;      /* Blue border when tab is focused */
+}
+
+/* Tab close button (optional) */
+QTabBar::close-button {
+    /* image: url(close-icon.png);     Replace with your close icon path */
+    subcontrol-position: right;     /* Position the close button on the right */
+    margin: 0 8px 0 0;              /* Spacing for the close button */
+}
+/*
+QTabBar::close-button:hover {
+    image: url(close-icon-hover.png);   Change icon on hover 
+}*/
+
+/* QComboBox */
+QComboBox {
+    background-color: #2e2e2e;       /* Dark gray background */
+    color: #ffffff;                  /* White text */
+    border: 1px solid #5b5e60;       /* Light gray border */
+    border-radius: 4px;              /* Rounded corners */
+    padding-left: 2px;                    /* Padding inside the combo box */
+}
+
+QComboBox:hover {
+    background-color: #3a3a3a;       /* Slightly lighter gray on hover */
+    border-color: #4a90e2;           /* Light blue border on hover */
+}
+
+QComboBox:focus {
+    background-color: #333333;       /* Lighter gray on focus */
+    border-color: #4a90e2;           /* Light blue border on focus */
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 30px;                      /* Width of the drop-down button */
+    background-color: #2e2e2e;        /* Dark gray background for drop-down */
+    border-left: 1px solid #5b5e60;   /* Light gray separator between drop-down button and combo box */
+}
+
+QComboBox::down-arrow {
+    image: url(:/888EAC-20px/ICONS/888EAC-20px/arrow-down.svg);  /*Replace with your down arrow icon */
+    width: 12px;                         /* Width of the arrow */
+    height: 12px;                        /* Height of the arrow */
+}
+
+QComboBox::down-arrow:hover {
+    image: url(:/888EAC-20px/ICONS/888EAC-20px/arrow-down.svg); /* Optional: different icon on hover */
+}
+
+QComboBox QAbstractItemView {
+    background-color: #2e2e2e;        /* Dark gray background for drop-down list */
+    color: #ffffff;                   /* White text */
+    border: 1px solid #5b5e60;        /* Light gray border around the list */
+    selection-background-color: #4a90e2;  /* Light blue background for selected item */
+    selection-color: #ffffff;         /* White text for selected item */
+}
+
+QComboBox QAbstractItemView::item {
+    background-color: transparent;    /* Transparent background for list items */
+    padding: 6px;                     /* Padding for each item in the list */
+}
+
+QComboBox QAbstractItemView::item:selected {
+    background-color: #4a90e2;        /* Light blue when an item is selected */
+    color: #ffffff;                   /* White text for selected item */
+}
+
+QComboBox QAbstractItemView::item:hover {
+    background-color: #3d78b2;        /* Darker blue on hover */
+    color: #ffffff;                   /* White text when hovered */
+}
+
+QComboBox:disabled {
+    background-color: #2e2e2e;        /* Dark gray background when disabled */
+    color: #777777;                   /* Lighter gray text when disabled */
+    border-color: #5b5e60;            /* Keep the light gray border */
+}
+
+/* QPushButton */
+QPushButton {
+    background-color: #3c3f41;  /* Dark gray background */
+    color: #ffffff;             /* White text */
+    border: 1px solid #5b5e60;  /* Light gray border */
+    border-radius: 4px;         /* Rounded corners */
+	padding: 0px 0px;
+}
+
+QPushButton:hover {
+    background-color: #4a90e2;  /* Light blue on hover */
+    border-color: #3d78b2;      /* Darker blue border */
+}
+
+QPushButton:pressed {
+    background-color: #3d78b2;  /* Darker blue on press */
+    border-color: #2a5f92;      /* Even darker border when pressed */
+}
+
+/* QCheckBox */
+QCheckBox {
+    color: #ffffff;                 /* White text for checkbox label */
+    spacing: 6px;                   /* Space between checkbox and label */
+}
+
+QCheckBox::indicator {
+    width: 14px;                    /* Set the size of the checkbox */
+    height: 14px;
+    background-color: #2e2e2e;      /* Dark gray background for the checkbox */
+    border: 1px solid #5b5e60;      /* Light gray border */
+    border-radius: 2px;             /* Slight rounding for modern look */
+}
+
+/* Hovered checkbox */
+QCheckBox::indicator:hover {
+    background-color: #3b73b4;      /* Light blue on hover */
+    border-color: #0dce1d;          /* Darker blue border on hover */
+}
+
+/*
+red: ff050d
+green: 0dce1d
+*/
+
+/* Checked checkbox */
+QCheckBox::indicator:checked {
+    background-color: #4a90e2;      /* Light blue when checked */
+    border-color: #3d78b2;          /* Darker blue border when checked */
+/*    image: url(:/checked-icon.png);  Replace with your checkmark icon if needed */
+}
+
+QCheckBox::indicator:checked:hover {
+    border-color: #ff050d;
+}
+
+/* Indeterminate checkbox (for tri-state checkboxes) */
+QCheckBox::indicator:indeterminate {
+    background-color: #4a90e2;      /* Light blue when in indeterminate state */
+    border-color: #3d78b2;          /* Darker blue border */
+/*    image: url(:/indeterminate-icon.png);  Replace with your indeterminate icon */
+}
+
+/* Pressed checkbox */
+QCheckBox::indicator:pressed {
+    background-color: #3d78b2;      /* Darker blue on press */
+    border-color: #2a5f92;          /* Even darker border when pressed */
+}
+
+/* Disabled checkbox */
+QCheckBox::indicator:disabled {
+    background-color: #2e2e2e;      /* Dark gray when disabled */
+    border-color: #5b5e60;          /* Light gray border */
+    color: #777777;                 /* Light gray label when disabled */
+}
+
+/* QRadioButton */
+QRadioButton {
+    color: #ffffff;              /* White text */
+    spacing: 5px;                /* Space between radio button and label */
+}
+
+QRadioButton::indicator {
+    width: 14px;                 /* Size of the radio button */
+    height: 14px;
+    background-color: #2e2e2e;   /* Dark gray background for the indicator */
+    border: 1px solid #5b5e60;   /* Light gray border */
+    border-radius: 8px;          /* Circular radio button */
+}
+
+QRadioButton::indicator:hover {
+    background-color: #4a90e2;   /* Light blue on hover */
+    border-color: #3d78b2;       /* Darker blue border on hover */
+}
+
+QRadioButton::indicator:checked {
+    background-color: #4a90e2;   /* Light blue when checked */
+    border-color: #3d78b2;       /* Darker blue border when checked */
+}
+
+QRadioButton::indicator:pressed {
+    background-color: #3d78b2;   /* Darker blue on press */
+    border-color: #2a5f92;       /* Even darker border on press */
+}
+
+QRadioButton::indicator:checked:pressed {
+    background-color: #3d78b2;   /* Darker blue when checked and pressed */
+    border-color: #2a5f92;       /* Even darker border when checked and pressed */
+}
+
+/* QToolButton */
+QToolButton {
+    background-color: #3c3f41;    /* Dark gray background */
+    color: #ffffff;               /* White text/icon */
+    border: 1px solid #5b5e60;    /* Light gray border */
+    border-radius: 4px;           /* Rounded corners */
+    padding: 0px 0px;            /* Padding for comfortable button size */
+}
+
+QToolButton:hover {
+    background-color: #4a90e2;    /* Light blue background on hover */
+    border-color: #3d78b2;        /* Darker blue border on hover */
+}
+
+QToolButton:pressed {
+    background-color: #3d78b2;    /* Darker blue background on press */
+    border-color: #2a5f92;        /* Even darker border when pressed */
+}
+
+QToolButton:checked {
+    background-color: #3d78b2;    /* Darker blue when checked */
+    border-color: #2a5f92;        /* Border color when checked */
+}
+
+QToolButton:disabled {
+    background-color: #2e2e2e;    /* Dark gray when disabled */
+    color: #777777;               /* Lighter gray text/icon for disabled state */
+    border-color: #5b5e60;        /* Keep the border color same as normal state */
+}
+
+/* QToolButton::menu-button */
+QToolButton::menu-button {
+    background-color: #3c3f41;      /* Dark gray background for menu button */
+    border: 1px solid #5b5e60;      /* Light gray border for menu button */
+    padding: 4px;                   /* Padding for the menu button */
+}
+
+QToolButton::menu-button:hover {
+    background-color: #4a90e2;      /* Light blue on hover */
+    border-color: #3d78b2;          /* Darker blue border on hover */
+}
+
+QToolButton::menu-button:pressed {
+    background-color: #3d78b2;      /* Darker blue on press */
+    border-color: #2a5f92;          /* Even darker border on press */
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">/* Central Widget */
+#centralwidget {
+    background-color: #1e1e1e;  /* Dark gray background */
+}</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>6</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="frame_3">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {margin: 6px;}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame {margin: 0px;}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="leftMargin">
+           <number>9</number>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <property name="rightMargin">
+           <number>9</number>
+          </property>
+          <property name="bottomMargin">
+           <number>9</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frame_5">
+            <property name="frameShape">
+             <enum>QFrame::Shape::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLineEdit" name="mod_name_input">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="contextMenuPolicy">
+                <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+               </property>
+               <property name="toolTip">
+                <string>35 char limit</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLineEdit {padding: 3px;}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="maxLength">
+                <number>35</number>
+               </property>
+               <property name="placeholderText">
+                <string>Enter ModName</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="submit_btn">
+               <property name="styleSheet">
+                <string notr="true">QPushButton {padding: 5px;}</string>
+               </property>
+               <property name="text">
+                <string>Submit</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {color: #888eac; padding-left: 3px;}</string>
+            </property>
+            <property name="text">
+             <string>ModName Example: nazi_zombie_prototype | nacht | myTestMap1</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="shortcut_cbox">
+            <property name="toolTip">
+             <string>e.g.
+'+set fs_game mods/{self.modName} +devmap {self.mapName} +set r_fullscreen 0'</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QCheckBox {padding-left: 5px;}</string>
+            </property>
+            <property name="text">
+             <string>Add shortcut to desktop (w/ args) ..for quick map loading ?</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="insert_ingame_print_msg_cbox">
+            <property name="toolTip">
+             <string>Example of in-game print message:
+'zm_test1 built successfully!'
+
+Currently only available for mode: zm</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QCheckBox {padding-left: 5px;}</string>
+            </property>
+            <property name="text">
+             <string>Insert an in-game print message to confirm build ?</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="build_mod_cbox">
+            <property name="styleSheet">
+             <string notr="true">QCheckBox {padding-left: 5px;}</string>
+            </property>
+            <property name="text">
+             <string>Build Mod ?</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="run_map_cbox">
+            <property name="styleSheet">
+             <string notr="true">QCheckBox {padding-left: 5px;}</string>
+            </property>
+            <property name="text">
+             <string>Run Map ?</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>158</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QGroupBox {
+	border: none;
+}</string>
+            </property>
+            <property name="title">
+             <string>SP</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QScrollArea" name="scrollArea_2">
+               <property name="frameShape">
+                <enum>QFrame::Shape::NoFrame</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="widgetResizable">
+                <bool>true</bool>
+               </property>
+               <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>397</width>
+                  <height>330</height>
+                 </rect>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <property name="leftMargin">
+                  <number>3</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>3</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>3</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>3</number>
+                 </property>
+                 <item>
+                  <widget class="QCheckBox" name="sp_ber1_cbox">
+                   <property name="text">
+                    <string>Ring of Steel (ber1)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_ber2_cbox">
+                   <property name="text">
+                    <string>Eviction (ber2)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_ber3_cbox">
+                   <property name="text">
+                    <string>Heart of the Reich (ber3)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_ber3b_cbox">
+                   <property name="text">
+                    <string>Downfall (ber3b)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_mak_cbox">
+                   <property name="text">
+                    <string>Semper Fi (mak)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_oki2_cbox">
+                   <property name="text">
+                    <string>Blowtorch &amp; Corkscrew (oki2)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_oki3_cbox">
+                   <property name="text">
+                    <string>Breaking Point (oki3)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_pby_fly_cbox">
+                   <property name="text">
+                    <string>Black Cats (pby_fly)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_pel1_cbox">
+                   <property name="text">
+                    <string>Little Resistance (pel1)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_pel1a_cbox">
+                   <property name="text">
+                    <string>Burn 'Em Out (pel1a)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_pel1b_cbox">
+                   <property name="text">
+                    <string>Relentless (pel1b)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_pel2_cbox">
+                   <property name="text">
+                    <string>Hard Landing (pel2)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_see1_cbox">
+                   <property name="text">
+                    <string>Their Land, Their Blood (see1)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_see2_cbox">
+                   <property name="text">
+                    <string>Blood and Iron (see2)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="sp_sniper_cbox">
+                   <property name="text">
+                    <string>Vendetta (sniper)</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>158</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QGroupBox {border: none;}</string>
+            </property>
+            <property name="title">
+             <string>MP</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_10">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QScrollArea" name="scrollArea_3">
+               <property name="styleSheet">
+                <string notr="true">QScrollBar::handle:vertical {
+    min-height: 40px;
+}</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Shape::NoFrame</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="widgetResizable">
+                <bool>true</bool>
+               </property>
+               <widget class="QWidget" name="scrollAreaWidgetContents_3">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>397</width>
+                  <height>506</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_11">
+                 <property name="leftMargin">
+                  <number>3</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>3</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>3</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>3</number>
+                 </property>
+                 <item>
+                  <widget class="QCheckBox" name="mp_airfield_cbox">
+                   <property name="text">
+                    <string>Airfield (mp_airfield)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_asylum_cbox">
+                   <property name="text">
+                    <string>Asylum (mp_asylum)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_kwai_cbox">
+                   <property name="text">
+                    <string>Banzai (mp_kwai)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_drum_cbox">
+                   <property name="text">
+                    <string>Battery (mp_drum)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_bgate_cbox">
+                   <property name="text">
+                    <string>Breach (mp_bgate)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_castle_cbox">
+                   <property name="text">
+                    <string>Castle (mp_castle)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_shrine_cbox">
+                   <property name="text">
+                    <string>Cliffside (mp_shrine)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_stalingrad_cbox">
+                   <property name="text">
+                    <string>Corrosion (mp_stalingrad)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_courtyard_cbox">
+                   <property name="text">
+                    <string>Courtyard (mp_courtyard)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_dome_cbox">
+                   <property name="text">
+                    <string>Dome (mp_dome)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_downfall_cbox">
+                   <property name="text">
+                    <string>Downfall (mp_downfall)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_hangar_cbox">
+                   <property name="text">
+                    <string>Hangar (mp_hangar)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_kneedeep_cbox">
+                   <property name="text">
+                    <string>Knee Deep (mp_kneedeep)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_makin_cbox">
+                   <property name="text">
+                    <string>Makin (mp_makin)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_makin_day_cbox">
+                   <property name="text">
+                    <string>Makin Day (mp_makin_day)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_nachtfeuer_cbox">
+                   <property name="text">
+                    <string>Nightfire (mp_nachtfeuer)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_outskirts_cbox">
+                   <property name="text">
+                    <string>Outskirts (mp_outskirts)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_vodka_cbox">
+                   <property name="text">
+                    <string>Revolution (mp_vodka)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_roundhouse_cbox">
+                   <property name="text">
+                    <string>Roundhouse (mp_roundhouse)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_seelow_cbox">
+                   <property name="text">
+                    <string>Seelow (mp_seelow)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_subway_cbox">
+                   <property name="text">
+                    <string>Station (mp_subway)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_docks_cbox">
+                   <property name="text">
+                    <string>Sub Pens (mp_docks)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="mp_suburban_cbox">
+                   <property name="text">
+                    <string>Upheaval (mp_suburban)</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_2">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>111</height>
+             </size>
+            </property>
+            <property name="title">
+             <string>ZM</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="spacing">
+              <number>6</number>
+             </property>
+             <property name="leftMargin">
+              <number>6</number>
+             </property>
+             <property name="topMargin">
+              <number>6</number>
+             </property>
+             <property name="rightMargin">
+              <number>6</number>
+             </property>
+             <property name="bottomMargin">
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QCheckBox" name="zm_prototype_cbox">
+               <property name="text">
+                <string>Nacht der Untoten (nazi_zombie_prototype)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="zm_asylum_cbox">
+               <property name="text">
+                <string>Verrückt (nazi_zombie_asylum)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="zm_sumpf_cbox">
+               <property name="text">
+                <string>Shi No Numa (nazi_zombie_sumpf)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="zm_factory_cbox">
+               <property name="text">
+                <string>Der Riese (nazi_zombie_factory)</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="sizeGripEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

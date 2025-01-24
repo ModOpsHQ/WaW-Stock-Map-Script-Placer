@@ -1,0 +1,6 @@
+Convert resources file:
+    pyside6-rcc src/resources/resources.qrc -o src/resources/resources_rc.py
+    Note: qt designer assigns a suffix of "_rc" to the import name in the generated Ui module
+
+import said file:
+    import src.resources.resources_rc

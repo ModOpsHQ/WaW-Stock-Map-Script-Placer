@@ -1,0 +1,8 @@
+**/__pycache__/
+archived/
+dist/
+build/
+logs/
+tests/
+base_files/
+base_files.zip
