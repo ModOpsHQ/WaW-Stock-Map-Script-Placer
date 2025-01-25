@@ -13,8 +13,8 @@ from PySide6.QtWidgets import QApplication
 
 # CREATE LOG FILE
 log_dir = os.path.join(os.path.dirname(sys.executable), '_internal', 'logs') if getattr(sys, 'frozen', False) else os.path.join(os.getcwd(), 'logs')
-logfile = "waw-stock-map-script-placer.log"
-log_path = os.path.join(log_dir, logfile)
+log_file = "waw-stock-map-script-placer.log"
+log_path = os.path.join(log_dir, log_file)
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)
 logging.basicConfig(
@@ -36,8 +36,8 @@ import src.core.config as config
 #     Main
 # ====================================*/
 
-from src.core.script_placer import ScriptPlacer
 from src.core.main_window import MainWindow
+from src.core.script_placer import ScriptPlacer
 from src.utils.message_box import display_message_box
 
 class Entry:
