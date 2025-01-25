@@ -14,6 +14,8 @@ Open WaW-Stock-Map-Script-Placer folder, drop base_files folder into _internal f
 
 ## Usage
 
+Go into _internal folder, then into json folder, open config.json and replace the directory with your own waw root directory.
+
 Run WaW-Stock-Map-Script-Placer.exe
 
 Input mod name
