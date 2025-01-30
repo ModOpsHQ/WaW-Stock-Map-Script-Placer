@@ -48,4 +48,4 @@ https://youtu.be/-cfac1ugllk
 Price (a.k.a phil81334)
 
 # Discord
-https://discord.gg/SEkBECkt2Q
+![Discord](https://discord.gg/SEkBECkt2Q)
