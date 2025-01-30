@@ -1,6 +1,8 @@
-# WaW-Stock-Map-Script-Placer
+# WaW Stock Map Script Placer
 
 A tool for creating custom Stock Map - Mods.
+It essentially just drops a base set of files into a specific folder structure.
+Said base files are extracted from the stock .ff files in root/zone/english so you can download my base_files.zip file or extract the ff's yourself.
 
 ## Installation
 
@@ -37,10 +39,13 @@ GNU Lesser General Public License Version 3
 
 ![alt text](misc/screenshot1.png)
 
+# Video
+
+https://youtu.be/-cfac1ugllk
+
 # Creator
 
 Price (a.k.a phil81334)
 
-# Video
-
-https://youtu.be/-cfac1ugllk
+# Discord
+https://discord.gg/SEkBECkt2Q
