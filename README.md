@@ -49,4 +49,4 @@ Price (a.k.a phil81334)
 
 # Socials
 
-<a href="https://modopshq.com" target="_blank" rel="noopener noreferrer">ModOpsHQ</a> || <a href="https://discord.gg/SEkBECkt2Q" target="_blank" rel="noopener noreferrer">Discord</a> || <a href="https://www.youtube.com/@modopshq" target="_blank" rel="noopener noreferrer">YouTube</a> || <a href="https://x.com/modopshq" target="_blank" rel="noopener noreferrer">X</a>
+[ModOpsHQ](https://modopshq.com) || [Discord](https://discord.gg/SEkBECkt2Q) || [YouTube](https://www.youtube.com/@modopshq) || [X](https://x.com/modopshq)
