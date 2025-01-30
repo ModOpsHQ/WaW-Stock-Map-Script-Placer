@@ -2,7 +2,7 @@
 
 A tool for creating custom Stock Map - Mods.
 It essentially just drops a base set of files into a specific folder structure.
-Said base files are extracted from the stock .ff files in root/zone/english so you can download my base_files.zip file or extract the ff's yourself.
+Said base files are extracted from the stock .ff files located in waw_root/zone/english so you can download my base_files.zip file or extract the ff's yourself. Just be sure to add these subdirs (sp, mp, zm) into the _internal/base_files folder, then your extracted ff's into the game-mode subdirs i.e _internal/base_files/sp/ber1, ber2, etc.
 
 # Installation
 
