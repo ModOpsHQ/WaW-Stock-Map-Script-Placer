@@ -4,7 +4,7 @@ A tool for creating custom Stock Map - Mods.
 It essentially just drops a base set of files into a specific folder structure.
 Said base files are extracted from the stock .ff files in root/zone/english so you can download my base_files.zip file or extract the ff's yourself.
 
-## Installation
+# Installation
 
 - Download WaW-Stock-Map-Script-Placer.zip
 - Extract WaW-Stock-Map-Script-Placer.zip
@@ -15,7 +15,7 @@ Said base files are extracted from the stock .ff files in root/zone/english so y
 - Open WaW-Stock-Map-Script-Placer folder
 - Drop base_files folder into _internal folder
 
-## Usage
+# Usage
 
 Go into _internal folder, then into json folder, open config.json and replace the directory with your own waw root directory.
 
@@ -31,7 +31,7 @@ Decide whether you want (all of these options are optional):
 
 Select one of the maps in the mode-specific sections.
 
-## License
+# License
 
 GNU Lesser General Public License Version 3
 
@@ -47,5 +47,6 @@ https://youtu.be/-cfac1ugllk
 
 Price (a.k.a phil81334)
 
-# Discord
-[Discord](https://discord.gg/SEkBECkt2Q)
+# Socials
+
+[ModOpsHQ](https://modopshq.com) || [Discord](https://discord.gg/SEkBECkt2Q) || [YouTube](https://www.youtube.com/@modopshq) || [X](https://x.com/modopshq)
